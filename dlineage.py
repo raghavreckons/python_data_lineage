@@ -43,9 +43,14 @@ def save_to_file(file_name, contents):
 def call_dataFlowAnalyzer(args):
     # Start the Java Virtual Machine (JVM)
     widget_server_url = "http://localhost:8000"
-    jvm = jpype.getDefaultJVMPath()
+    java_home = os.environ.get('JAVA_HOME')
+    jvm = os.path.join(java_home, 'jre', 'bin','server', 'jvm.dll')
+    print(jpype.getClassPath())
+    print(jpype.isJVMStarted())
     jar = "-Djava.class.path=jar/gudusoft.gsqlparser-2.8.5.8.jar"
     jpype.startJVM(jvm, "-ea", jar)
+    print(jpype.getClassPath())
+    print(jpype.isJVMStarted())
 
     try:
         TGSqlParser = jpype.JClass("gudusoft.gsqlparser.TGSqlParser")
