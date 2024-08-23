@@ -48,7 +48,7 @@ def call_dataFlowAnalyzer(args):
     print(jpype.getClassPath())
     print(jpype.isJVMStarted())
     jar = "-Djava.class.path=jar/gudusoft.gsqlparser-2.8.5.8.jar"
-    jpype.startJVM(jvm, "-ea", jar)
+    jpype.startJVM(jvm, "-ea", jar) 
     print(jpype.getClassPath())
     print(jpype.isJVMStarted())
 
